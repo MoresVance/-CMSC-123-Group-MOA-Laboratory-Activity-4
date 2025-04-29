@@ -19,11 +19,15 @@ hidden_layer = 120; % arbitrary amount
 num_labels = 2; % 2 classifications, Benign and Malignant
 
 % PSO Parameters
-MAX_ITERATIONS = 100; % Maximum iterations for PSO
-SWARM_SIZE = 60; % Total number of particles
-W = 0.85; % Inertia weight
+MAX_ITERATIONS = 500; % Maximum iterations for PSO
+SWARM_SIZE = 80; % Total number of particles
+W = 0.90; % Inertia weight
 C1 = 1.5; % Cognitive coefficient
 C2 = 1.5; % Social coefficient
+
+% Define the range of the search space for particle positions
+position_min = -1; % Minimum value for particle positions
+position_max = 1;  % Maximum value for particle positions
 
 % Generate initial population of particles
 particles = generatePopulation(SWARM_SIZE, input_layer, hidden_layer, num_labels);
@@ -61,6 +65,8 @@ for iter = 1:MAX_ITERATIONS
     
     % Update particle velocities and positions
     for i = 1:SWARM_SIZE
+        V_max = 0.2 * (position_max - position_min);
+        velocity{i} = max(min(velocity{i}, V_max), -V_max);
         velocity{i} = W * velocity{i} + ...
                       C1 * rand() * (personal_best{i} - particles{i}) + ...
                       C2 * rand() * (global_best - particles{i});
