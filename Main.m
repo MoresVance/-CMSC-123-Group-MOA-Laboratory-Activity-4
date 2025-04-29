@@ -1,44 +1,38 @@
 % Load data
-data = dlmread('iris_training.data', ',', 0, 0);  % Read only numeric data
+data = dlmread('cancer_training.data', ',', 0, 0);  % Read only numeric data
 
-% Extract features (first 4 columns, excluding the classification on the 5th column)
-X = data(:, 1:4); % This is the training data
+% Extract features (columns 2 to 10, excluding the ID and classification on the 11th column)
+X = data(:, 2:10); % This is the training data
 
-% Read labels separately (since they are strings)
-fid = fopen('iris_training.data', 'r');
-if fid == -1
-    error('File iris_training.data not found or cannot be opened.');
+% Read labels separately (last column)
+y = data(:, 11);
+
+% Update class labels for the cancer dataset
+class_labels = [1, 2]; % Assuming 1 = Benign, 2 = Malignant
+if ~all(ismember(unique(y), class_labels))
+    error('Unexpected class labels in the dataset. Check the data.');
 end
-
-
-% Adjust delimiter if necessary
-labels = textscan(fid, '%*f %*f %*f %*f %s', 'Delimiter', ','); % Update delimiter if needed
-fclose(fid);
-
-% Check if labels were read correctly
-if isempty(labels{1})
-    error('Labels could not be read. Check the file format and delimiter.');
-end
-
-y = labels{1};
-
-class_labels = {'Iris-setosa', 'Iris-versicolor', 'Iris-virginica'};
-[~, y] = ismember(y, class_labels); % this is the outcome for each of the training data
 
 % Some Constants
-input_layer = 4; % 4 features, sepal length & width, petal length & width
+input_layer = 9; % 9 features
 hidden_layer = 120; % arbitrary amount
-num_labels = 3; % 3 classifications, Setosa, Versicolor, Virginica
+num_labels = 2; % 2 classifications, Benign and Malignant
 
 % PSO Parameters
 MAX_ITERATIONS = 100; % Maximum iterations for PSO
-SWARM_SIZE = 50; % Total number of particles
-W = 0.5; % Inertia weight
+SWARM_SIZE = 60; % Total number of particles
+W = 0.85; % Inertia weight
 C1 = 1.5; % Cognitive coefficient
 C2 = 1.5; % Social coefficient
 
 % Generate initial population of particles
 particles = generatePopulation(SWARM_SIZE, input_layer, hidden_layer, num_labels);
+
+% Initialize velocities for each particle
+velocity = cell(SWARM_SIZE, 1);
+for i = 1:SWARM_SIZE
+    velocity{i} = zeros(size(particles{i})); % Initialize velocity to zero
+end
 
 % Initialize personal best and global best
 personal_best = particles;
@@ -67,8 +61,10 @@ for iter = 1:MAX_ITERATIONS
     
     % Update particle velocities and positions
     for i = 1:SWARM_SIZE
-        % Update velocity and position here (not shown for brevity)
-        % This would typically involve using W, C1, C2, and the best positions
+        velocity{i} = W * velocity{i} + ...
+                      C1 * rand() * (personal_best{i} - particles{i}) + ...
+                      C2 * rand() * (global_best - particles{i});
+        particles{i} = particles{i} + velocity{i};
     end
     
     printf("Iteration %d Global Best Fitness: %f\n", iter, global_best_fitness);
@@ -87,22 +83,29 @@ Theta2 = reshape(global_best((1 + (hidden_layer * (input_layer + 1))):end), ...
                  num_labels, (hidden_layer + 1));
 
 % Load testing data
-data = dlmread('iris_testing.data', ',', 0, 0);  % Read only numeric data
-testing_data = data(:, 1:4); % This is the testing data
-
-fid = fopen('iris_testing.data', 'r');
-labels = textscan(fid, '%*f %*f %*f %*f %s', 'Delimiter', ',');
-fclose(fid);
-
-testing_labels = labels{1};
-
-[~, testing_labels] = ismember(testing_labels, class_labels); % this is the outcome for each of the testing data
+data = dlmread('cancer_testing.data', ',', 0, 0);  % Read only numeric data
+testing_data = data(:, 2:10); % This is the testing data
+testing_labels = data(:, 11);
 
 % Make predictions
 result = predict(Theta1, Theta2, testing_data);
-disp("Predicted Results: ");
-disp(result);
-disp("Actual Results: ");
-disp(testing_labels);
-training_acc = mean(double(result == testing_labels(1:length(result), 1))) * 100;
+training_acc = mean(double(result == testing_labels)) * 100;
 fprintf('Training Accuracy: %.2f%%\n', training_acc);
+
+% Save parameters and accuracy to log.txt
+log_file = fopen('log.txt', 'a'); % Open log.txt in append mode
+if log_file == -1
+    error('Could not open log.txt for writing.');
+end
+
+fprintf(log_file, "Run Date: %s\n", datestr(now));
+fprintf(log_file, "PSO Parameters:\n");
+fprintf(log_file, "  MAX_ITERATIONS: %d\n", MAX_ITERATIONS);
+fprintf(log_file, "  SWARM_SIZE: %d\n", SWARM_SIZE);
+fprintf(log_file, "  W: %.2f\n", W);
+fprintf(log_file, "  C1: %.2f\n", C1);
+fprintf(log_file, "  C2: %.2f\n", C2);
+fprintf(log_file, "Training Accuracy: %.2f%%\n", training_acc);
+fprintf(log_file, "----------------------------------------\n");
+
+fclose(log_file); % Close the file
