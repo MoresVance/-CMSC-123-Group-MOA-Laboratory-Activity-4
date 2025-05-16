@@ -1,20 +1,19 @@
-function predictions = predict(Theta1, Theta2, X)
-    % Add bias unit to the input layer
-    m = size(X, 1);
-    X = [ones(m, 1) X]; % Add bias term
+function p = predict(Theta1, Theta2, X)
+%PREDICT Predict the label of an input given a trained neural network
+%   p = PREDICT(Theta1, Theta2, X) outputs the predicted label of X given the
+%   trained weights of a neural network (Theta1, Theta2)
 
-    % Forward propagation
-    z2 = X * Theta1';
-    a2 = sigmoid(z2);
-    a2 = [ones(m, 1) a2]; % Add bias term to hidden layer
+% Useful values
+m = size(X, 1);
+num_labels = size(Theta2, 1);
 
-    z3 = a2 * Theta2';
-    a3 = sigmoid(z3); % Output layer
+p = zeros(size(X, 1), 1);
 
-    % Get predicted class labels
-    [~, predictions] = max(a3, [], 2);
-end
+h1 = sigmoid([ones(m, 1) X] * Theta1');
+h2 = sigmoid([ones(m, 1) h1] * Theta2');
+[dummy, p] = max(h2, [], 2);
 
-function g = sigmoid(z)
-    g = 1 ./ (1 + exp(-z));
+% =========================================================================
+
+
 end

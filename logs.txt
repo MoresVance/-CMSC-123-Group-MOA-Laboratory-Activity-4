@@ -1,0 +1,960 @@
+input layers: 9, hidden layers: 120, num labels: 2, generations: 100, population: 100, tournament: 20, mutation: 0.01, accuracy: 96.45
+input layers: 9, hidden layers: 120, num labels: 2, generations: 100, population: 100, tournament: 20, mutation: 0.01, accuracy: 95.94
+input layers: 9, hidden layers: 120, num labels: 2, generations: 100, population: 100, tournament: 20, mutation: 0.01, accuracy: 96.95
+input layers: 9, hidden layers: 120, num labels: 2, generations: 100, population: 100, tournament: 20, mutation: 0.01, accuracy: 96.95
+input layers: 9, hidden layers: 120, num labels: 2, generations: 100, population: 100, tournament: 20, mutation: 0.01, accuracy: 95.43
+input layers: 9, hidden layers: 120, num labels: 2, generations: 100, population: 100, tournament: 20, mutation: 0.01, accuracy: 95.43
+input layers: 9, hidden layers: 120, num labels: 2, generations: 100, population: 100, tournament: 20, mutation: 0.01, accuracy: 90.36
+input layers: 9, hidden layers: 120, num labels: 2, generations: 100, population: 100, tournament: 20, mutation: 0.01, accuracy: 89.85
+input layers: 9, hidden layers: 120, num labels: 2, generations: 100, population: 100, tournament: 20, mutation: 0.01, accuracy: 96.95
+input layers: 9, hidden layers: 120, num labels: 2, generations: 100, population: 100, tournament: 20, mutation: 0.01, accuracy: 95.94
+input layers: 9, hidden layers: 120, num labels: 2, generations: 100, population: 100, tournament: 20, mutation: 0.01, accuracy: 97.46
+input layers: 9, hidden layers: 120, num labels: 2, generations: 100, population: 100, tournament: 20, mutation: 0.01, accuracy: 96.45
+input layers: 9, hidden layers: 120, num labels: 2, generations: 100, population: 100, tournament: 20, mutation: 0.01, accuracy: 96.95
+========================================
+Execution Date: 2025-05-06 22:14:15
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.10
+Min Inertia Weight (wmin): 0.80
+========================================
+Training Accuracy: 85.28%
+========================================
+
+========================================
+Execution Date: 2025-05-06 22:17:07
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.00
+Min Inertia Weight (wmin): 0.80
+V_max = 20% of Search space
+========================================
+Training Accuracy: 91.88%
+========================================
+
+========================================
+Execution Date: 2025-05-06 22:20:49
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.00
+Min Inertia Weight (wmin): 0.80
+V_max = 30 % of Search Space
+========================================
+Training Accuracy: 89.34%
+========================================
+
+========================================
+Execution Date: 2025-05-06 22:25:10
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.00
+Min Inertia Weight (wmin): 0.80
+V_max = 25% Search Space
+========================================
+Training Accuracy: 84.77%
+========================================
+
+========================================
+Execution Date: 2025-05-06 22:37:25
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.00
+Min Inertia Weight (wmin): 0.80
+========================================
+Execution Date: 2025-05-06 22:45:12
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.00
+Min Inertia Weight (wmin): 0.80
+V_max: 0.15 % Search Space
+========================================
+Training Accuracy: 92.39%
+========================================
+
+========================================
+Execution Date: 2025-05-06 22:48:01
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.00
+Min Inertia Weight (wmin): 0.80
+V_max: 0.10 % Search Space
+========================================
+Training Accuracy: 92.89%
+========================================
+
+========================================
+Execution Date: 2025-05-06 22:51:49
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.00
+Min Inertia Weight (wmin): 0.80
+V_max: 5.00 % Search Space
+========================================
+Training Accuracy: 87.82%
+========================================
+
+========================================
+Execution Date: 2025-05-06 22:56:13
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.00
+Min Inertia Weight (wmin): 0.80
+V_max: 5.00 % Search Space
+========================================
+Training Accuracy: 90.86%
+========================================
+
+========================================
+Execution Date: 2025-05-06 22:59:05
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.00
+Min Inertia Weight (wmin): 0.80
+V_max: 10.00 % Search Space
+========================================
+Training Accuracy: 86.80%
+========================================
+
+========================================
+Execution Date: 2025-05-06 23:27:43
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.00
+Min Inertia Weight (wmin): 0.80
+V_max: 20.00 % Search Space
+========================================
+Training Accuracy: 96.45%
+========================================
+
+========================================
+Execution Date: 2025-05-07 06:53:55
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.00
+Min Inertia Weight (wmin): 0.80
+V_max: 20.00 % Search Space
+========================================
+Training Accuracy: 90.36%
+========================================
+
+========================================
+Execution Date: 2025-05-07 07:06:29
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.00
+Min Inertia Weight (wmin): 0.80
+V_max: 50.00 % Search Space
+========================================
+Training Accuracy: 87.82%
+========================================
+
+========================================
+Execution Date: 2025-05-07 07:12:38
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.00
+Min Inertia Weight (wmin): 0.80
+V_max: 15.00 % Search Space
+========================================
+Training Accuracy: 90.86%
+========================================
+
+========================================
+Execution Date: 2025-05-07 07:15:42
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.90
+Min Inertia Weight (wmin): 0.70
+V_max: 15.00 % Search Space
+========================================
+Training Accuracy: 94.92%
+========================================
+
+========================================
+Execution Date: 2025-05-07 07:18:53
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.90
+Min Inertia Weight (wmin): 0.70
+V_max: 15.00 % Search Space
+========================================
+Training Accuracy: 89.85%
+========================================
+
+========================================
+Execution Date: 2025-05-07 07:23:08
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 80
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.90
+Min Inertia Weight (wmin): 0.70
+V_max: 15.00 % Search Space
+========================================
+Training Accuracy: 89.34%
+========================================
+
+========================================
+Execution Date: 2025-05-07 07:24:47
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 100
+Total Population: 60
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.90
+Min Inertia Weight (wmin): 0.70
+V_max: 20.00 % Search Space
+========================================
+Training Accuracy: 84.26%
+========================================
+
+========================================
+Execution Date: 2025-05-07 07:35:57
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 500
+Total Population: 80
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.90
+Min Inertia Weight (wmin): 0.70
+V_max: 20.00 % Search Space
+========================================
+Training Accuracy: 92.39%
+========================================
+
+========================================
+Execution Date: 2025-05-07 07:57:07
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.00
+Min Inertia Weight (wmin): 0.80
+V_max: 20.00 % Search Space
+========================================
+Training Accuracy: 85.28%
+========================================
+
+========================================
+Execution Date: 2025-05-07 08:09:17
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 1.00
+Min Inertia Weight (wmin): 0.80
+V_max: 20.00 % Search Space
+========================================
+Training Accuracy: 91.37%
+========================================
+
+========================================
+Execution Date: 2025-05-07 08:22:06
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 15
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.90
+Min Inertia Weight (wmin): 0.65
+V_max: 20.00 % Search Space
+========================================
+Training Accuracy: 94.92%
+========================================
+
+========================================
+Execution Date: 2025-05-07 08:35:18
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.90
+Min Inertia Weight (wmin): 0.65
+V_max: 20.00 % Search Space
+========================================
+Training Accuracy: 96.45%
+========================================
+
+========================================
+Execution Date: 2025-05-07 08:51:10
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.90
+Min Inertia Weight (wmin): 0.65
+V_max: 20.00 % Search Space
+========================================
+Training Accuracy: 93.40%
+========================================
+
+========================================
+Execution Date: 2025-05-07 09:04:05
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.90
+Min Inertia Weight (wmin): 0.60
+V_max: 20.00 % Search Space
+========================================
+Execution Date: 2025-05-07 09:17:28
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.90
+Min Inertia Weight (wmin): 0.60
+V_max: 20.00 % Search Space
+Min Fitness: 1.00
+========================================
+Training Accuracy: 95.94%
+========================================
+
+========================================
+Execution Date: 2025-05-07 09:30:53
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 20.00 % Search Space
+Best Global Fitness: 0.50
+========================================
+Training Accuracy: 97.97%
+========================================
+
+========================================
+Execution Date: 2025-05-07 09:44:58
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 20.00 % Search Space
+Best Global Fitness: 0.47
+========================================
+Training Accuracy: 97.46%
+========================================
+
+========================================
+Execution Date: 2025-05-07 09:56:45
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 20.00 % Search Space
+Best Global Fitness: 0.5601932
+========================================
+Training Accuracy: 90.86%
+========================================
+
+========================================
+Execution Date: 2025-05-07 10:09:41
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 30.00 % Search Space
+Best Global Fitness: 0.5848403
+========================================
+Training Accuracy: 98.48%
+========================================
+
+========================================
+Execution Date: 2025-05-07 10:31:48
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 15.00 % Search Space
+Best Global Fitness: 0.5911968
+========================================
+Training Accuracy: 96.45%
+========================================
+
+========================================
+Execution Date: 2025-05-07 10:44:49
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 30.00 % Search Space
+Best Global Fitness: 0.5713248
+========================================
+Training Accuracy: 92.89%
+========================================
+
+========================================
+Execution Date: 2025-05-07 11:00:02
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 25.00 % Search Space
+Best Global Fitness: 0.6186670
+========================================
+Training Accuracy: 93.91%
+========================================
+
+========================================
+Execution Date: 2025-05-07 11:23:00
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 25.00 % Search Space
+Best Global Fitness: 0.5638688
+========================================
+Training Accuracy: 92.89%
+========================================
+
+========================================
+Execution Date: 2025-05-07 11:39:45
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.00
+Social Coefficient (c2): 2.00
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.60
+V_max: 30.00 % Search Space
+Best Global Fitness: 0.5874369
+========================================
+Training Accuracy: 95.43%
+========================================
+
+========================================
+Execution Date: 2025-05-07 12:05:45
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 1.80
+Social Coefficient (c2): 1.80
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.60
+V_max: 30.00 % Search Space
+Best Global Fitness: 0.7756074
+========================================
+Training Accuracy: 84.26%
+========================================
+
+========================================
+Execution Date: 2025-05-07 12:18:56
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.10
+Social Coefficient (c2): 2.10
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.60
+V_max: 30.00 % Search Space
+Best Global Fitness: 0.6400378
+========================================
+Training Accuracy: 94.92%
+========================================
+
+========================================
+Execution Date: 2025-05-07 14:25:04
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.10
+Social Coefficient (c2): 2.10
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 25.00 % Search Space
+Best Global Fitness: 0.5006949
+========================================
+Training Accuracy: 96.45%
+========================================
+
+========================================
+Execution Date: 2025-05-07 14:41:09
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.10
+Social Coefficient (c2): 2.10
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 25.00 % Search Space
+Best Global Fitness: 0.5160020
+========================================
+Training Accuracy: 97.97%
+========================================
+
+========================================
+Execution Date: 2025-05-08 08:14:49
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.10
+Social Coefficient (c2): 2.10
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 25.00 % Search Space
+Best Global Fitness: 0.5190938
+========================================
+Training Accuracy: 97.97%
+========================================
+
+========================================
+Execution Date: 2025-05-08 08:27:58
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.10
+Social Coefficient (c2): 2.10
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 25.00 % Search Space
+Best Global Fitness: 0.5558373
+========================================
+Training Accuracy: 96.45%
+========================================
+
+========================================
+Execution Date: 2025-05-08 09:17:52
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.10
+Social Coefficient (c2): 2.10
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 30.00 % Search Space
+Best Global Fitness: 0.5288432
+========================================
+Training Accuracy: 93.91%
+========================================
+
+========================================
+Execution Date: 2025-05-08 09:40:39
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.10
+Social Coefficient (c2): 2.10
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 20.00 % Search Space
+Best Global Fitness: 0.4587201
+========================================
+Training Accuracy: 96.45%
+========================================
+
+========================================
+Execution Date: 2025-05-08 11:01:38
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.10
+Social Coefficient (c2): 2.10
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 20.00 % Search Space
+Best Global Fitness: 0.5415741
+========================================
+Training Accuracy: 97.46%
+========================================
+
+========================================
+Execution Date: 2025-05-08 11:14:51
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.10
+Social Coefficient (c2): 2.10
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 22.50 % Search Space
+Best Global Fitness: 0.4598303
+========================================
+Training Accuracy: 97.97%
+========================================
+
+========================================
+Execution Date: 2025-05-08 11:27:46
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.10
+Social Coefficient (c2): 2.10
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 22.50 % Search Space
+Best Global Fitness: 0.6488839
+========================================
+Training Accuracy: 91.37%
+========================================
+
+========================================
+Execution Date: 2025-05-08 11:43:29
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.10
+Social Coefficient (c2): 2.10
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 22.50 % Search Space
+Best Global Fitness: 0.5688944
+========================================
+Training Accuracy: 94.42%
+========================================
+
+========================================
+Execution Date: 2025-05-08 11:57:49
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.10
+Social Coefficient (c2): 2.10
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+========================================
+Execution Date: 2025-05-08 12:33:38
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.10
+Social Coefficient (c2): 2.10
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+V_max: 0.45 
+Best Global Fitness: 0.4529379
+========================================
+Training Accuracy: 97.46%
+========================================
+
+========================================
+Execution Date: 2025-05-08 13:05:43
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.10
+Social Coefficient (c2): 2.10
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+Max Velocity: 0.45 
+Best Global Fitness: 0.4680982
+========================================
+Training Accuracy: 96.95%
+========================================
+
+========================================
+Execution Date: 2025-05-08 13:44:19
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.10
+Social Coefficient (c2): 2.10
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+Max Velocity: 0.45 
+Best Global Fitness: 0.6145852
+========================================
+Training Accuracy: 91.88%
+========================================
+
+========================================
+Execution Date: 2025-05-09 03:51:18
+========================================
+Constants Used:
+Input Layer: 9
+Hidden Layer: 20
+Number of Labels: 2
+Max Generations: 500
+Total Population: 100
+Cognitive Coefficient (c1): 2.15
+Social Coefficient (c2): 2.15
+Max Inertia Weight (wmax): 0.85
+Min Inertia Weight (wmin): 0.65
+Max Velocity: 0.45 
+Best Global Fitness: 0.5928921
+========================================
+Training Accuracy: 96.95%
+========================================
+

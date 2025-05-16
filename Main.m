@@ -1,117 +1,143 @@
 % Load data
 data = dlmread('cancer_training.data', ',', 0, 0);  % Read only numeric data
 
-% Extract features (columns 2 to 10, excluding the ID and classification on the 11th column)
-X = data(:, 2:10); % This is the training data
-
-% Read labels separately (last column)
-y = data(:, 11);
-
-% Update class labels for the cancer dataset
-class_labels = [1, 2]; % Assuming 1 = Benign, 2 = Malignant
-if ~all(ismember(unique(y), class_labels))
-    error('Unexpected class labels in the dataset. Check the data.');
-end
+% Extract features 
+X = data(:, 2:10); %This is the training data
+y = data(:, 11:11) %This is traning labels
 
 % Some Constants
-input_layer = 9; % 9 features
-hidden_layer = 120; % arbitrary amount
-num_labels = 2; % 2 classifications, Benign and Malignant
+input_layer = 9 
+hidden_layer = 20% arbitrary amount
+num_labels = 2 % 2 classifications 2 or 4
+c1 = 2.15; % cognitive coefficient
+c2 = 2.15; % social coefficient
+wmax = 0.85; % max inertia weight
+wmin = 0.65; % min inertia weight
 
-% PSO Parameters
-MAX_ITERATIONS = 500; % Maximum iterations for PSO
-SWARM_SIZE = 80; % Total number of particles
-W = 0.90; % Inertia weight
-C1 = 1.5; % Cognitive coefficient
-C2 = 1.5; % Social coefficient
 
-% Define the range of the search space for particle positions
-position_min = -1; % Minimum value for particle positions
-position_max = 1;  % Maximum value for particle positions
+MAX_GENERATIONS = 500 % Maximum Generations to go through
+TOTAL_POPULATION = 100 % Total Population
 
-% Generate initial population of particles
-particles = generatePopulation(SWARM_SIZE, input_layer, hidden_layer, num_labels);
+V_max = 0.45; % Max Velocity
 
-% Initialize velocities for each particle
-velocity = cell(SWARM_SIZE, 1);
-for i = 1:SWARM_SIZE
-    velocity{i} = zeros(size(particles{i})); % Initialize velocity to zero
+% GENERATE POPULATION
+pops_position = generatePopulation(TOTAL_POPULATION, input_layer, hidden_layer, num_labels);
+pops_velocity= generatePopulation(TOTAL_POPULATION, input_layer, hidden_layer, num_labels);
+best_personal = pops_position;
+best_global = pops_position{1};
+
+optimal_weights = [];
+minFitness = ones(MAX_GENERATIONS, 1);
+
+fid1 = fopen('results.txt', 'w');
+
+% Inital fitness evaluation
+for i = 1: TOTAL_POPULATION
+    nn_params = pops_position{i};
+    best_personal_fitness = nnCostFunction(best_personal{i}, input_layer, hidden_layer, num_labels, X, y, 1);
+    best_global_fitness = nnCostFunction(best_global, input_layer, hidden_layer, num_labels, X, y, 1);
+
+    if (best_personal_fitness < best_global_fitness)
+        best_global = best_personal{i};
+    endif
+
 end
 
-% Initialize personal best and global best
-personal_best = particles;
-personal_best_fitness = inf(SWARM_SIZE, 1);
-global_best = [];
-global_best_fitness = inf;
+%disp(pops_velocity);
+%disp(new_velocity(pops_velocity, pops_position, best_personal, best_global, 1, 2, 2))
 
-% PSO Training Loop
-for iter = 1:MAX_ITERATIONS
-    for i = 1:SWARM_SIZE
-        nn_params = particles{i};
-        fitness = nnCostFunction(nn_params, input_layer, hidden_layer, num_labels, X, y, 1);
-        
-        % Update personal best
-        if fitness < personal_best_fitness(i)
-            personal_best_fitness(i) = fitness;
-            personal_best{i} = nn_params;
-        end
-        
-        % Update global best
-        if fitness < global_best_fitness
-            global_best_fitness = fitness;
-            global_best = nn_params;
-        end
+current_fitness = nnCostFunction(pops_position{1} + pops_velocity{1}, input_layer, hidden_layer, num_labels, X, y, 1);
+% disp(current_fitness);
+% FITNESS EVALUATION
+for g = 1: MAX_GENERATIONS
+    pops_position = updatePosition(pops_position, pops_velocity);
+    %disp(pops_velocity{1});
+    %disp(pops_position{1});
+    for i = 1: TOTAL_POPULATION
+        current_fitness = nnCostFunction(pops_position{i}, input_layer, hidden_layer, num_labels, X, y, 1);
+        best_personal_fitness = nnCostFunction(best_personal{i}, input_layer, hidden_layer, num_labels, X, y, 1);
+        global_fitness = nnCostFunction(best_global, input_layer, hidden_layer, num_labels, X, y, 1);
+
+        if (current_fitness < best_personal_fitness)
+            best_personal{i} = pops_position{i};
+        endif 
+
+        if (current_fitness < global_fitness)
+            best_global = pops_position{i};
+        endif 
     end
+
+    pops_velocity = updateVelocity(pops_velocity, pops_position, best_personal, best_global, c1, c2, g, MAX_GENERATIONS, wmin, wmax, best_personal_fitness, global_fitness);
     
-    % Update particle velocities and positions
-    for i = 1:SWARM_SIZE
-        V_max = 0.2 * (position_max - position_min);
-        velocity{i} = max(min(velocity{i}, V_max), -V_max);
-        velocity{i} = W * velocity{i} + ...
-                      C1 * rand() * (personal_best{i} - particles{i}) + ...
-                      C2 * rand() * (global_best - particles{i});
-        particles{i} = particles{i} + velocity{i};
+    for i = 1:TOTAL_POPULATION
+        pops_velocity{i} = max(min(pops_velocity{i}, V_max), -V_max);
     end
-    
-    printf("Iteration %d Global Best Fitness: %f\n", iter, global_best_fitness);
-    
-    % Stop if global best fitness is already 0
-    if global_best_fitness == 0
-        break;
-    end
+
+    global_fitness = nnCostFunction(best_global, input_layer, hidden_layer, num_labels, X, y, 1);
+
+    minFitness(g) = global_fitness;
+    printf("Generation %d Global Fitness: %d\n", g, global_fitness);
+
+    % sort the population according to fitness, in ascending order
+    % [sorted_fitness, sorted_indices] = sort(fitness, 'ascend');
+    % pops = pops(sorted_indices);
+
+    % get the current minimum and set that as the optimal weight
+    % optimal_weights = pops{1};
+    % minFitness(g) = fitness(1);
+
+    % printf("Generation %d Min Fitness: %d\n", g, fitness(1))
+
+    % stop if fitness at that minimum is already 0
+    % if (fitness(1) == 0)
+    %     break;
+    % endif
+
 end
 
-% Reshape the optimal weights for the ANN
-Theta1 = reshape(global_best(1:hidden_layer * (input_layer + 1)), ...
+% xlabel ("Generation");
+% p = plot (minFitness);
+% ylabel ("Min Fitness");
+% title ("PSO Algorithm");
+% waitfor(p);
+
+Theta1 = reshape(best_global(1:hidden_layer * (input_layer + 1)), ...
                  hidden_layer, (input_layer + 1));
 
-Theta2 = reshape(global_best((1 + (hidden_layer * (input_layer + 1))):end), ...
+Theta2 = reshape(best_global((1 + (hidden_layer * (input_layer + 1))):end), ...
                  num_labels, (hidden_layer + 1));
 
-% Load testing data
 data = dlmread('cancer_testing.data', ',', 0, 0);  % Read only numeric data
-testing_data = data(:, 2:10); % This is the testing data
-testing_labels = data(:, 11);
+testing_data = data(:, 2:10); %This is the testing data
+testing_labels = data(:, 11:11); %This is the testing data
 
-% Make predictions
 result = predict(Theta1, Theta2, testing_data);
-training_acc = mean(double(result == testing_labels)) * 100;
+%disp("Predicted Results: ");
+%disp(result);
+%disp("Actual Results: ");
+%disp(testing_labels);
+training_acc = mean(double(result == testing_labels(1:length(result), 1))) * 100;
 fprintf('Training Accuracy: %.2f%%\n', training_acc);
 
-% Save parameters and accuracy to log.txt
-log_file = fopen('log.txt', 'a'); % Open log.txt in append mode
-if log_file == -1
-    error('Could not open log.txt for writing.');
-end
-
-fprintf(log_file, "Run Date: %s\n", datestr(now));
-fprintf(log_file, "PSO Parameters:\n");
-fprintf(log_file, "  MAX_ITERATIONS: %d\n", MAX_ITERATIONS);
-fprintf(log_file, "  SWARM_SIZE: %d\n", SWARM_SIZE);
-fprintf(log_file, "  W: %.2f\n", W);
-fprintf(log_file, "  C1: %.2f\n", C1);
-fprintf(log_file, "  C2: %.2f\n", C2);
-fprintf(log_file, "Training Accuracy: %.2f%%\n", training_acc);
-fprintf(log_file, "----------------------------------------\n");
-
-fclose(log_file); % Close the file
+% Log constants, accuracy, and execution date
+current_date = datestr(now, 'yyyy-mm-dd HH:MM:SS');
+fid1 = fopen('logs.txt', 'a');
+fprintf(fid1, "========================================\n");
+fprintf(fid1, "Execution Date: %s\n", current_date);
+fprintf(fid1, "========================================\n");
+fprintf(fid1, "Constants Used:\n");
+fprintf(fid1, "Input Layer: %d\n", input_layer);
+fprintf(fid1, "Hidden Layer: %d\n", hidden_layer);
+fprintf(fid1, "Number of Labels: %d\n", num_labels);
+fprintf(fid1, "Max Generations: %d\n", MAX_GENERATIONS);
+fprintf(fid1, "Total Population: %d\n", TOTAL_POPULATION);
+fprintf(fid1, "Cognitive Coefficient (c1): %.2f\n", c1);
+fprintf(fid1, "Social Coefficient (c2): %.2f\n", c2);
+fprintf(fid1, "Max Inertia Weight (wmax): %.2f\n", wmax);
+fprintf(fid1, "Min Inertia Weight (wmin): %.2f\n", wmin);
+fprintf(fid1, "Max Velocity: %.2f \n", V_max);
+fprintf(fid1,  "Best Global Fitness: %.7f\n", global_fitness);
+fprintf(fid1, "========================================\n");
+fprintf(fid1, "Training Accuracy: %.2f%%\n", training_acc);
+fprintf(fid1, "========================================\n\n");
+fclose(fid1);

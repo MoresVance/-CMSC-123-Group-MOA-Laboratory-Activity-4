@@ -1,47 +1,56 @@
-function [J, grad] = nnCostFunction(nn_params, input_layer, hidden_layer, num_labels, X, y, lambda)
-    Theta1 = reshape(nn_params(1:hidden_layer * (input_layer + 1)), ...
-                     hidden_layer, (input_layer + 1));
-    Theta2 = reshape(nn_params((1 + (hidden_layer * (input_layer + 1))):end), ...
-                     num_labels, (hidden_layer + 1));
+function [J] = nnCostFunction(nn_params, ...
+                                   input_layer_size, ...
+                                   hidden_layer_size, ...
+                                   num_labels, ...
+                                   X, y, lambda)
+%NNCOSTFUNCTION Implements the neural network cost function for a two layer
+%neural network which performs classification
+%   [J grad] = NNCOSTFUNCTON(nn_params, hidden_layer_size, num_labels, ...
+%   X, y, lambda) computes the cost and gradient of the neural network. The
+%   parameters for the neural network are "unrolled" into the vector
+%   nn_params and need to be converted back into the weight matrices.
+%
+%   The returned parameter grad should be a "unrolled" vector of the
+%   partial derivatives of the neural network.
+%
 
-    m = size(X, 1);
-    J = 0;
-    Theta1_grad = zeros(size(Theta1));
-    Theta2_grad = zeros(size(Theta2));
+% Reshape nn_params back into the parameters Theta1 and Theta2, the weight matrices
+% for our 2 layer neural network
+Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), ...
+                 hidden_layer_size, (input_layer_size + 1));
 
-    % Forward propagation
-    a1 = [ones(m, 1) X]; % Add bias unit
-    z2 = a1 * Theta1';
-    a2 = [ones(size(z2, 1), 1) sigmoid(z2)]; % Add bias unit
-    z3 = a2 * Theta2';
-    a3 = sigmoid(z3); % Output layer
+Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):end), ...
+                 num_labels, (hidden_layer_size + 1));
 
-    Y = eye(num_labels)(y, :);
+% Setup some useful variables
+m = size(X, 1);
+
+J = 0;
+
+%without regularization
+y_temp = eye(num_labels);
+
+%input layer to hidden layer
+X = [ones(size(X, 1), 1) X]; %adds column of ones
+z2 = X*Theta1';
+a2 = sigmoid(z2);
+
+%hidden layer to output layer
+a2 = [ones(size(a2, 1), 1) a2]; %adds column of ones
+z3 = a2*Theta2';
+h = sigmoid(z3);
 
 
-    % Cost function
-    J = (1/m) * sum(sum(-Y .* log(a3) - (1 - Y) .* log(1 - a3))) + ...
-        (lambda/(2*m)) * (sum(sum(Theta1(:, 2:end).^2)) + sum(sum(Theta2(:, 2:end).^2)));
-
-    % Backpropagation
-    delta3 = a3 - Y;
-    delta2 = (delta3 * Theta2(:, 2:end)) .* sigmoidGradient(z2);
-
-    Theta1_grad = (1/m) * (delta2' * a1);
-    Theta2_grad = (1/m) * (delta3' * a2);
-
-    % Regularization
-    Theta1_grad(:, 2:end) = Theta1_grad(:, 2:end) + (lambda/m) * Theta1(:, 2:end);
-    Theta2_grad(:, 2:end) = Theta2_grad(:, 2:end) + (lambda/m) * Theta2(:, 2:end);
-
-    % Unroll gradients
-    grad = [Theta1_grad(:); Theta2_grad(:)];
+Y = zeros(m, num_labels);
+for i = 1 : m
+  Y(i,:) = y_temp(y(i), :);
 end
 
-function g = sigmoid(z)
-    g = 1.0 ./ (1.0 + exp(-z));
-end
+J = sum(sum((-Y) .* log(h) - (1 - Y) .* log(1 - h)))/m;
 
-function g = sigmoidGradient(z)
-    g = sigmoid(z) .* (1 - sigmoid(z));
+
+%with regularization
+%cost function
+J = J + ((lambda/(2*m))*(sum(sum(Theta1(:, [2:columns(Theta1)]).*Theta1(:, [2:columns(Theta1)]))) + sum(sum(Theta2(:, [2:columns(Theta2)]).*Theta2(:, [2:columns(Theta2)])))));
+
 end
